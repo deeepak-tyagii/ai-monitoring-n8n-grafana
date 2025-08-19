@@ -1,4 +1,4 @@
-# AI-Powered Observability Pipeline with Gemini and Grafana
+# AI-Powered Monitoring Pipeline with Gemini and Grafana
 
 This project provides a complete, containerized AIOps pipeline that automatically analyzes application errors and sends intelligent reports to Slack. It uses Grafana for alerting, n8n for workflow automation, and Google's Gemini for AI-powered analysis.
 
@@ -67,7 +67,7 @@ The final step is to add your API keys to the n8n workflow.
 7. Under **Credential**, click **Create New**. Paste your **Slack Bot Token** (`xoxb-...`) into the **Access Token** field.
     
 8. Click the **Save** button to finalize your workflow.
-9. 
+   
 <img width="1600" height="478" alt="AD_4nXc6Y9UQHuv430xmJWrJ7QlKu46XhPXn0SE_KJSqAij4QCvlJKAtQel8ZC_-_ntP7yVwWj10o4yVCZnwxRx3mCJxtKZ5cSVcLLtbYyFoWnqUr312VlGdltmY" src="https://github.com/user-attachments/assets/298d14ea-c08a-4d9c-b03a-633f376aaa54" />
 
 ## Testing the Pipeline
