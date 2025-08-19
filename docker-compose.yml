@@ -1,0 +1,83 @@
+services:
+  loki:
+    image: grafana/loki:2.9.0
+    ports:
+      - "3100:3100"
+    volumes:
+      - grafana_data:/var/lib/grafana
+    command: -config.file=/etc/loki/local-config.yaml
+    networks:
+      - loki
+
+  promtail:
+    image: grafana/promtail:2.9.0
+    volumes:
+      - /var/log/app/:/var/log/app
+      - ./promtail:/etc/promtail
+    command: -config.file=/etc/promtail/promtail-config.yml
+    networks:
+      - loki
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./grafana/provisioning:/etc/grafana/provisioning
+    networks:
+      - loki
+
+  sample-app:
+    build: 
+      context: ./sample-app
+    volumes:
+      - /var/log/app:/app/logs
+    ports:
+      - "8080:8080"
+    networks:
+      - loki
+
+#uncomment the following lines to enable Prometheus and Node Exporter
+  # prometheus:
+  #   image: prom/prometheus:latest
+  #   ports:
+  #     - "9090:9090"
+  #   volumes:
+  #     - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+  #   command: '--config.file=/etc/prometheus/prometheus.yml'
+  #   networks:
+  #     - loki
+
+  # node-exporter:
+  #   image: prom/node-exporter:latest
+  #   ports:
+  #     - "9100:9100"
+  #   volumes:
+  #     - /proc:/host/proc:ro
+  #     - /sys:/host/sys:ro
+  #     - /:/rootfs:ro
+  #   command:
+  #     - '--path.procfs=/host/proc'
+  #     - '--path.sysfs=/host/sys'
+  #     - '--collector.filesystem.mount-points-exclude=^/(sys|proc|dev|host|etc)($$|/)'
+  #   networks:
+  #     - loki
+
+  n8n:
+    image: docker.n8n.io/n8nio/n8n
+    ports:
+      - "5678:5678"
+    volumes:
+      - n8n_data:/home/node/.n8n
+    networks:
+      - loki
+    environment:
+      - N8N_SECURE_COOKIE= false
+
+networks:
+  loki:
+    driver: bridge
+volumes:
+  n8n_data:
+  grafana_data:
