@@ -67,7 +67,8 @@ The final step is to add your API keys to the n8n workflow.
 7. Under **Credential**, click **Create New**. Paste your **Slack Bot Token** (`xoxb-...`) into the **Access Token** field.
     
 8. Click the **Save** button to finalize your workflow.
-    
+9. 
+<img width="1600" height="478" alt="AD_4nXc6Y9UQHuv430xmJWrJ7QlKu46XhPXn0SE_KJSqAij4QCvlJKAtQel8ZC_-_ntP7yVwWj10o4yVCZnwxRx3mCJxtKZ5cSVcLLtbYyFoWnqUr312VlGdltmY" src="https://github.com/user-attachments/assets/298d14ea-c08a-4d9c-b03a-633f376aaa54" />
 
 ## Testing the Pipeline
 
@@ -76,4 +77,7 @@ The final step is to add your API keys to the n8n workflow.
     - Open your web browser and navigate to `http://localhost:8080/error` **several times**.
         
     - Within about a minute, Grafana will fire the alert, and you should see the full AI analysis in Slack.
+
+   <img width="3767" height="1302" alt="Pasted Graphic 66" src="https://github.com/user-attachments/assets/1af58249-c2e2-41ac-959f-1536eb6e84e9" />
+
         
