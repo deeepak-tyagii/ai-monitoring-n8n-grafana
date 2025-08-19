@@ -56,15 +56,17 @@ The final step is to add your API keys to the n8n workflow.
 
 1. Navigate to the n8n UI at `http://localhost:5678`.
     
-2. You will see a pre-built workflow on the canvas. Click on the **Google Gemini Chat Model** node.
+2. Login and Click on **Build from Scratch**.
+3. Import the Workflow using the [**n8n_workflow.json**](https://raw.githubusercontent.com/deeepak-tyagii/ai-monitoring-n8n-grafana/c4b2d27ae7b60c81ed1b1a8d74fd541dd883bdca/n8n_workflow.json) file by clicking on **Import File** option from top right menu.
+4. Click on the **Google Gemini Chat Model** node.
     
-3. In the properties panel on the right, under **Credential**, click **Create New** and paste in your **Google Gemini API Key**.
+5. In the properties panel on the right, under **Credential**, click **Create New** and paste in your **Google Gemini API Key**.
     
-4. Next, click on the **Slack** node (connected to the Gemini node).
+6. Next, click on the **Slack** node (connected to the Gemini node).
     
-5. Under **Credential**, click **Create New**. Paste your **Slack Bot Token** (`xoxb-...`) into the **Access Token** field.
+7. Under **Credential**, click **Create New**. Paste your **Slack Bot Token** (`xoxb-...`) into the **Access Token** field.
     
-6. Click the **Save** button to finalize your workflow.
+8. Click the **Save** button to finalize your workflow.
     
 
 ## Testing the Pipeline
